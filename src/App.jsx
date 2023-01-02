@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
 import Card from "./Components/Card";
+import NavBar from "./Container/Nav/Nav";
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const [beers, setBeers] = useState([]);
 
   const getBeer = async () => {
@@ -15,13 +17,29 @@ const App = () => {
     console.log(beers);
   };
 
+  const getSearchTerm = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filterBeers = () => {
+    const filteredArray = beers.filter((beer) => {
+      if (beer.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return beer;
+      }
+    });
+    return filteredArray;
+  };
+
   useEffect(() => {
-    // 👇️ only runs once
+    // only runs once
     console.log("useEffect ran");
     getBeer();
   }, []);
 
-  const beersCardJSX = beers.map((indiBeer) => {
+  const getSearchBarValue = () => {
+    console.log(document.getElementById("searchBar").value);
+  };
+  const beersCardJSX = filterBeers().map((indiBeer) => {
     return (
       <Card
         name={indiBeer.name}
@@ -31,10 +49,14 @@ const App = () => {
       />
     );
   });
+
+  //getSearchBarValue();
   return (
-    <div>
-      <h1> Punk API </h1>
-      {beersCardJSX}
+    <div className="page-container">
+      <div className="navBar-container">
+        <NavBar getSearchTerm={getSearchTerm} />
+      </div>
+      <div className="beer-container">{beersCardJSX}</div>
     </div>
   );
 };

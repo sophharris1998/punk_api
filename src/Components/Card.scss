@@ -1,8 +1,14 @@
+.beer-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
 .beer-card {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: blue;
+    border: 3px solid black;
     width: 100%;
     max-width: 350px;
     border-radius: 3px;
@@ -16,7 +22,6 @@
     .beer-card__content {
         padding: 1rem;
         display: flex;
-        flex-direction: column;
         gap: 0.5rem;
         width: 100%;
         text-align: center;
