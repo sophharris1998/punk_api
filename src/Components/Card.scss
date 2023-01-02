@@ -1,0 +1,25 @@
+.beer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 1rem;
+
+    .beer-card__image {
+    width: 75px;
+    }
+
+    .beer-card__content {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+}
