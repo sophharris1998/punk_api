@@ -13,8 +13,8 @@ const Nav = ({
       <SearchBox getSearchTerm={getSearchTerm} />
       <label> abv higher than 6% </label>
       <Checkbox getCheckedBox={getAbvCheckedBox} />
-      <label> </label>
-      <label> </label>
+      <label> Classic Range </label>
+      <Checkbox getCheckedBox={getClassicRangeCheckedBox} />
     </div>
   );
 };

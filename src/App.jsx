@@ -6,6 +6,7 @@ import NavBar from "./Container/Nav/Nav";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [abvCheckBox, setAbvCheckBox] = useState(false);
+  const [classicRangeCheckBox, setClassicRangeCheckBox] = useState(false);
   const [beers, setBeers] = useState([]);
 
   useEffect(() => {
@@ -32,6 +33,12 @@ const App = () => {
     setAbvCheckBox(event.target.checked);
     console.log(abvCheckBox);
   };
+
+  const getClassicRangeCheckedBox = (event) => {
+    setClassicRangeCheckBox(event.target.checked);
+    console.log(classicRangeCheckBox);
+  };
+
   const filterBeers = () => {
     let filteredArray = beers.filter((beer) => {
       if (beer.name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -41,6 +48,15 @@ const App = () => {
 
     filteredArray = filteredArray.filter((beer) => {
       if (abvCheckBox == false || (abvCheckBox == true && beer.abv > 6.0)) {
+        return beer;
+      }
+    });
+
+    filteredArray = filteredArray.filter((beer) => {
+      if (
+        classicRangeCheckBox == false ||
+        (classicRangeCheckBox == true && beer.first_brewed < 2010)
+      ) {
         return beer;
       }
     });
@@ -70,6 +86,7 @@ const App = () => {
         <NavBar
           getSearchTerm={getSearchTerm}
           getAbvCheckedBox={getAbvCheckedBox}
+          getClassicRangeCheckedBox={getClassicRangeCheckedBox}
         />
       </div>
       <div className="beer-container">{beersCardJSX}</div>
