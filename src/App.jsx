@@ -28,7 +28,7 @@ const App = () => {
     setSearchTerm(event.target.value);
   };
 
-  const getCheckedBox = (event) => {
+  const getAbvCheckedBox = (event) => {
     setAbvCheckBox(event.target.checked);
     console.log(abvCheckBox);
   };
@@ -67,7 +67,10 @@ const App = () => {
   return (
     <div className="page-container">
       <div className="navBar-container">
-        <NavBar getSearchTerm={getSearchTerm} getCheckedBox={getCheckedBox} />
+        <NavBar
+          getSearchTerm={getSearchTerm}
+          getAbvCheckedBox={getAbvCheckedBox}
+        />
       </div>
       <div className="beer-container">{beersCardJSX}</div>
     </div>

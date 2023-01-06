@@ -3,12 +3,17 @@ import SearchBox from "../../Components/SearchBox/SearchBox";
 import Checkbox from "../../Components/CheckBox/CheckBox";
 import "./Nav.scss";
 
-const Nav = ({ getSearchTerm, getCheckedBox }) => {
+const Nav = ({
+  getSearchTerm,
+  getAbvCheckedBox,
+  getClassicRangeCheckedBox,
+}) => {
   return (
     <div className="nav">
       <SearchBox getSearchTerm={getSearchTerm} />
-      <label> Abv bigger than 6% </label>
-      <Checkbox getCheckedBox={getCheckedBox} />
+      <label> abv higher than 6% </label>
+      <Checkbox getCheckedBox={getAbvCheckedBox} />
+      <label> </label>
       <label> </label>
     </div>
   );
