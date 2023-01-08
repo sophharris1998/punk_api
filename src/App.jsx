@@ -53,9 +53,11 @@ const App = () => {
     });
 
     filteredArray = filteredArray.filter((beer) => {
+      let slicedDate = beer.first_brewed.slice(3);
+      let yearInt = parseInt(slicedDate);
       if (
         classicRangeCheckBox == false ||
-        (classicRangeCheckBox == true && beer.first_brewed < 2010)
+        (classicRangeCheckBox == true && yearInt < 2010)
       ) {
         return beer;
       }
