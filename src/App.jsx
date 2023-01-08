@@ -7,6 +7,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [abvCheckBox, setAbvCheckBox] = useState(false);
   const [classicRangeCheckBox, setClassicRangeCheckBox] = useState(false);
+  const [phCheckBox, setPhCheckBox] = useState(false);
   const [beers, setBeers] = useState([]);
 
   useEffect(() => {
@@ -39,6 +40,11 @@ const App = () => {
     console.log(classicRangeCheckBox);
   };
 
+  const getPhCheckedBox = (event) => {
+    setPhCheckBox(event.target.checked);
+    console.log(phCheckBox);
+  };
+
   const filterBeers = () => {
     let filteredArray = beers.filter((beer) => {
       if (beer.name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -59,6 +65,12 @@ const App = () => {
         classicRangeCheckBox == false ||
         (classicRangeCheckBox == true && yearInt < 2010)
       ) {
+        return beer;
+      }
+    });
+
+    filteredArray = filteredArray.filter((beer) => {
+      if (phCheckBox == false || (phCheckBox == true && beer.ph < 4.0)) {
         return beer;
       }
     });
@@ -90,6 +102,7 @@ const App = () => {
           getSearchTerm={getSearchTerm}
           getAbvCheckedBox={getAbvCheckedBox}
           getClassicRangeCheckedBox={getClassicRangeCheckedBox}
+          getPhCheckedBox={getPhCheckedBox}
         />
       </div>
       <div className="beer-container">{beersCardJSX}</div>
