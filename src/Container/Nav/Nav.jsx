@@ -11,13 +11,20 @@ const Nav = ({
 }) => {
   return (
     <div className="nav">
-      <SearchBox getSearchTerm={getSearchTerm} />
-      <label> ABV higher than 6% </label>
-      <Checkbox getCheckedBox={getAbvCheckedBox} />
-      <label> Classic Range </label>
-      <Checkbox getCheckedBox={getClassicRangeCheckedBox} />
-      <label> PH lower than 4 </label>
-      <Checkbox getCheckedBox={getPhCheckedBox} />
+      <img
+        className="brewDogLogo"
+        src="https://presshub.brewdog.com/images/cms/large/1440777209BREWDOGLOGO.jpg"
+        alt=""
+      />
+      <div className="navContent">
+        <SearchBox getSearchTerm={getSearchTerm} />
+        <label> ABV higher than 6% </label>
+        <Checkbox getCheckedBox={getAbvCheckedBox} />
+        <label> Classic Range </label>
+        <Checkbox getCheckedBox={getClassicRangeCheckedBox} />
+        <label> PH lower than 4 </label>
+        <Checkbox getCheckedBox={getPhCheckedBox} />
+      </div>
     </div>
   );
 };
