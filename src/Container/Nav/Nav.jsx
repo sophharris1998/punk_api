@@ -18,12 +18,18 @@ const Nav = ({
       />
       <div className="navContent">
         <SearchBox getSearchTerm={getSearchTerm} />
-        <label> ABV higher than 6% </label>
-        <Checkbox getCheckedBox={getAbvCheckedBox} />
-        <label> Classic Range </label>
-        <Checkbox getCheckedBox={getClassicRangeCheckedBox} />
-        <label> PH lower than 4 </label>
-        <Checkbox getCheckedBox={getPhCheckedBox} />
+        <div className="flexRow">
+          <Checkbox getCheckedBox={getAbvCheckedBox} />
+          <label className="labelNav"> ABV higher than 6% </label>
+        </div>
+        <div className="flexRow">
+          <Checkbox getCheckedBox={getClassicRangeCheckedBox} />
+          <label className="labelNav"> Classic Range </label>
+        </div>
+        <div className="flexRow">
+          <Checkbox getCheckedBox={getPhCheckedBox} />
+          <label className="labelNav"> PH lower than 4 </label>
+        </div>
       </div>
     </div>
   );
