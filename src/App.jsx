@@ -89,7 +89,7 @@ const App = () => {
         image={indiBeer.image_url}
         abv={indiBeer.abv}
         first_brewed={indiBeer.first_brewed}
-        description={indiBeer.description}
+        ph={indiBeer.ph}
       />
     );
   });

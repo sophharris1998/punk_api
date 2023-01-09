@@ -27,7 +27,16 @@
         gap: 0.5rem;
         width: 100%;
         text-align: center;
+        flex-direction: column;
     }
 
+    .beer-card__heading {
+        margin-bottom: 1.5rem;
+        font-size: 1.75rem;
+    }
+
+    .beer-card__information {
+        margin-bottom: 0.5rem;
+    }
 
 }
